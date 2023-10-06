@@ -1,10 +1,10 @@
-# Install Git
-Write-Host "Installing Git..."
-winget install --id=Git.Git -e --accept-package-agreements --accept-source-agreements
-
 # Update Winget
 Write-Host "Updating Winget..."
 winget upgrade --id=Microsoft.Winget -e --accept-package-agreements --accept-source-agreements
+
+# Install Git
+Write-Host "Installing Git..."
+winget install --id=Git.Git -e --accept-package-agreements --accept-source-agreements
 
 # Clone your GitHub repository
 Write-Host "Cloning GitHub repository..."
