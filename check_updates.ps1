@@ -3,7 +3,7 @@ $updatesAvailable = $false
 
 # Check for updates
 Write-Host "Checking for updates..."
-$updates = winget upgrade --all
+$updates = winget upgrade
 if ($updates -match "No installed package found") {
     Write-Host "No updates available."
     $updatesAvailable = $false
