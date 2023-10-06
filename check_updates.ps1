@@ -18,17 +18,3 @@ if ($updatesAvailable) {
 } else {
     "false" | Out-File -FilePath "C:\Skripts\updates_available.txt"
 }
-
-# Check if first_boot_finished.txt exists and its value
-$firstBootFile = "C:\Skripts\first_boot_finished.txt"
-$firstBootStatus = $false
-if (Test-Path $firstBootFile) {
-    $firstBootStatus = Get-Content $firstBootFile -Raw
-}
-
-# Run Install_first_boot.ps1 if necessary and update first_boot_finished.txt
-if ($firstBootStatus -eq "false" -or -not (Test-Path $firstBootFile)) {
-    Write-Host "Running Install_first_boot.ps1..."
-    .\Install_first_boot.ps1
-    "true" | Out-File -FilePath $firstBootFile
-}
