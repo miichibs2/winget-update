@@ -1,18 +1,18 @@
-# Initialize
+# Wert wird auf false gesetzt
 $updatesAvailable = $false
 
-# Check for updates
-Write-Host "Checking for updates..."
-$updates = winget upgrade
+# Nach updates suchen
+Write-Host "updates werden gesucht..."
+$updates = winget update
 if ($updates -match "No installed package found") {
-    Write-Host "No updates available."
+    Write-Host "keine updates verfügbar."
     $updatesAvailable = $false
 } else {
-    Write-Host "Updates available."
+    Write-Host "Updates verfügbar."
     $updatesAvailable = $true
 }
 
-# Write the updates status to updates_available.txt
+# Ja/Nein in updates_available.txt schreiben
 if ($updatesAvailable) {
     "true" | Out-File -FilePath "C:\Skripts\updates_available.txt"
 } else {
